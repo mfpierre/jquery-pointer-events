@@ -1,0 +1,48 @@
+<html>
+<head>
+<style>
+.avoid-clicks {
+  display: block;
+  width: 8em;
+  height: 8em;
+  background: rgba(51,51,51,0.85);
+  position: absolute;
+  top: 1em;
+  left: 4em;
+  padding: 0.75em;
+  pointer-events: none;
+  color: whitesmoke;
+}
+
+body {
+  font: 14px/1.4 "Trebuchet MS", sans-serif;
+  padding: 3em;
+  max-width: 600px;
+  background: whitesmoke;
+}
+
+p {
+  padding: 0.75em;
+  background: #ddd;
+}
+</style>
+</head>
+<body>
+<p class="pointerTarget">This is some basic flow content. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni eos ipsum sunt repellat nisi modi voluptatum ipsa eligendi minima cumque. Accusantium laudantium autem quae earum eaque expedita quia molestiae in.</p>
+
+<div class="avoid-clicks">try clicking div through me</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="vendor/jquery.nearest.min.js"></script>
+<script src="jquery-pointer-events.js"></script>
+<script>
+    $(document).ready(function(){
+      PointerEventsPolyfill.initialize({
+        selector:'.avoid-clicks'
+      });
+    });
+    $('.pointerTarget').on('click',function(){
+        console.log('clicked');
+    });
+</script>
+</body>
+</html>
