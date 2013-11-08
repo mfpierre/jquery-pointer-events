@@ -57,7 +57,7 @@ PointerEventsPolyfill.initialize = function(options){
 
 PointerEventsPolyfill.prototype.register_mouse_events = function(){
     var options = options;
-    $(document).on(this.options.mouseEvents.join(" "), options.selector, function(e){
+    $(document).on(options.mouseEvents.join(" "), options.selector, function(e){
         if($(this).css('pointer-events') == 'none'){
             var $targetElement = $.nearest({x: e.clientX, y: e.clientY}, options.target);
             e.target = $targetElement;
