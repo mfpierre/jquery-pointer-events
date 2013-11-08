@@ -44,8 +44,9 @@ function PointerEventsPolyfill(options){
         selector: '*',
         mouseEvents: ['click','dblclick','mousedown','mouseup']
     }, options);
-    if(null === getPrefix('pointer-eventes', document.createElement('div').style))
-      this.register_mouse_events();
+    if(null === getPrefix('pointer-eventes', document.createElement('div').style)) {
+        this.register_mouse_events();
+    }
 }
 
 PointerEventsPolyfill.initialize = function(options){
